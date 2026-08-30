@@ -59,15 +59,16 @@
 
       h1 {
         margin: 1.25rem 0 1rem;
-        font-size: clamp(2.2rem, 5vw, 4rem);
-        line-height: 1.1;
+        font-size: clamp(2.4rem, 6vw, 4.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
       }
 
       p {
         margin: 0 auto 1.5rem;
-        max-width: 640px;
-        font-size: 1.1rem;
-        line-height: 1.6;
+        max-width: 700px;
+        font-size: 1.18rem;
+        line-height: 1.7;
         color: var(--muted);
       }
 
@@ -84,6 +85,77 @@
 
       .cta:hover {
         background: var(--primary-dark);
+      }
+
+      .illustration-wrap {
+        margin: 2rem auto 1.5rem;
+        max-width: 560px;
+        padding: 1rem 1rem 0.5rem;
+        border-radius: 28px;
+        background: linear-gradient(180deg, #fff7ed, #ecfeff 55%, #f0fdf4);
+        border: 3px solid #fde68a;
+        box-shadow: 0 18px 35px rgba(250, 204, 21, 0.2), inset 0 0 0 6px rgba(255,255,255,0.5);
+      }
+
+      .bike-scene {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .wheel {
+        animation: spin 0.9s linear infinite;
+        transform-origin: center;
+      }
+
+      .rider {
+        animation: bob 0.7s ease-in-out infinite alternate;
+        transform-origin: center;
+      }
+
+      .pedal {
+        animation: spin 0.55s linear infinite;
+        transform-origin: center;
+      }
+
+      .bike-body {
+        animation: drift 1.2s ease-in-out infinite alternate;
+        transform-origin: center;
+      }
+
+      .sun {
+        animation: pulse 1.2s ease-in-out infinite alternate;
+        transform-origin: center;
+      }
+
+      .cloud {
+        animation: float 2.6s ease-in-out infinite alternate;
+        transform-origin: center;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      @keyframes bob {
+        from { transform: translateY(0px) rotate(-1deg); }
+        to { transform: translateY(-12px) rotate(2deg); }
+      }
+
+      @keyframes drift {
+        from { transform: translateX(-6px) rotate(-2deg); }
+        to { transform: translateX(10px) rotate(2deg); }
+      }
+
+      @keyframes pulse {
+        from { transform: scale(1); opacity: 0.9; }
+        to { transform: scale(1.22); opacity: 1; }
+      }
+
+      @keyframes float {
+        from { transform: translateX(0px); }
+        to { transform: translateX(12px); }
       }
 
       .features {
@@ -117,12 +189,57 @@
     <main class="container">
       <div class="content">
         <div class="badge">Bandplakservice</div>
-        <h1>Welkom bij onze website</h1>
+        <h1>Laat je band weer snel weer rijden!</h1>
         <p>
-          Heeft u een lekke band of wilt u snel een afspraak maken voor het plakken van uw banden?
-          U bent hier aan het juiste adres. Plan eenvoudig uw afspraak en laat uw banden professioneel repareren.
+          Heb je een lekke band of wil je gewoon gewoon weer probleemloos de weg op? Wij helpen je graag!
+          Maak snel en eenvoudig een afspraak voor het plakken van je banden en laat je fiets of voertuig weer in topvorm terugkeren.
         </p>
-        <a class="cta" href="mailto:info@voorbeeld.nl?subject=Afspraak%20banden%20plakken">Maak een afspraak</a>
+        <a class="cta" href="mailto:info@voorbeeld.nl?subject=Afspraak%20banden%20plakken">Plan je afspraak</a>
+
+        <div class="illustration-wrap" aria-label="Illustratie van een persoon op een fiets">
+          <svg class="bike-scene" viewBox="0 0 540 260" role="img" aria-labelledby="bikeTitle bikeDesc" xmlns="http://www.w3.org/2000/svg">
+            <title id="bikeTitle">Persoon op een fiets</title>
+            <desc id="bikeDesc">Een vrolijke, bewegende fietser die blij fietst.</desc>
+
+            <g class="sun">
+              <circle cx="470" cy="48" r="24" fill="#facc15"/>
+            </g>
+
+            <g class="cloud">
+              <ellipse cx="88" cy="48" rx="30" ry="16" fill="#ffffff" opacity="0.9"/>
+              <ellipse cx="114" cy="42" rx="26" ry="14" fill="#ffffff" opacity="0.9"/>
+              <ellipse cx="136" cy="48" rx="26" ry="15" fill="#ffffff" opacity="0.9"/>
+            </g>
+
+            <g class="bike-body">
+              <circle class="wheel" cx="120" cy="170" r="52" fill="none" stroke="#1f2937" stroke-width="8"/>
+              <circle class="wheel" cx="390" cy="170" r="52" fill="none" stroke="#1f2937" stroke-width="8"/>
+
+              <path d="M120 170 L210 92 L290 170 L390 170 M210 92 L255 170 L170 170" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M255 170 L292 92" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+              <path d="M292 92 L332 170" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+
+              <g class="pedal">
+                <circle cx="240" cy="170" r="22" fill="none" stroke="#1f2937" stroke-width="6"/>
+                <path d="M240 170 L270 146" stroke="#1f2937" stroke-width="6" stroke-linecap="round"/>
+                <path d="M240 170 L210 194" stroke="#1f2937" stroke-width="6" stroke-linecap="round"/>
+              </g>
+
+              <g class="rider">
+                <circle cx="292" cy="68" r="22" fill="#fbbf24"/>
+                <circle cx="282" cy="63" r="2.2" fill="#1f2937"/>
+                <circle cx="302" cy="63" r="2.2" fill="#1f2937"/>
+                <path d="M282 75 Q292 82 302 75" fill="none" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+
+                <path d="M292 90 L275 120 L340 150" fill="none" stroke="#1f2937" stroke-width="8" stroke-linecap="round"/>
+                <path d="M292 90 L252 122 L235 168" fill="none" stroke="#1f2937" stroke-width="8" stroke-linecap="round"/>
+                <path d="M275 120 L240 150" fill="none" stroke="#1f2937" stroke-width="8" stroke-linecap="round"/>
+                <path d="M340 150 L372 178" fill="none" stroke="#1f2937" stroke-width="8" stroke-linecap="round"/>
+                <path d="M252 122 L225 147" fill="none" stroke="#1f2937" stroke-width="8" stroke-linecap="round"/>
+              </g>
+            </g>
+          </svg>
+        </div>
 
         <div class="features">
           <div class="feature">

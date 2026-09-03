@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-labelledby="title desc">
+  <title id="title">Persoon op een stadsfiets</title>
+  <desc id="desc">Een eenvoudige illustratie van een persoon die rechtop op het zadel van een stadsfiets zit.</desc>
+  <rect width="720" height="420" rx="18" fill="#f8efdf"/>
+  <circle cx="600" cy="85" r="42" fill="#e6c98f" opacity=".8"/>
+  <path d="M70 342 Q180 326 290 342 T510 342 T650 342" fill="none" stroke="#c29a6b" stroke-width="12" stroke-linecap="round"/>
+
+  <g fill="none" stroke="#70472e" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="174" cy="280" r="88" stroke-width="8"/>
+    <circle cx="540" cy="280" r="88" stroke-width="8"/>
+    <path d="M174 280 L296 178 L392 280 L174 280 M296 178 L454 178 L392 280 M454 178 L540 280" stroke="#a87345" stroke-width="13"/>
+    <circle cx="392" cy="280" r="25" fill="#f4ead7" stroke-width="8"/>
+    <path d="M392 280 L426 248 M392 280 L360 311" stroke-width="8"/>
+    <path d="M454 178 L478 144 M447 144 H503" stroke-width="9"/>
+    <path d="M448 144 Q477 132 501 145" stroke-width="7"/>
+    <path d="M294 178 H332" stroke-width="9"/>
+  </g>
+
+  <g stroke="#70472e" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M356 137 L330 182 L430 196" fill="none"/>
+    <path d="M356 137 L307 178 L294 218" fill="none"/>
+    <path d="M330 182 L294 218" fill="none"/>
+    <path d="M430 196 L468 153" fill="none"/>
+  </g>
+  <path d="M330 180 Q378 170 430 196 L410 226 Q358 212 316 202 Z" fill="#b1845a"/>
+  <circle cx="356" cy="105" r="34" fill="#e2bd8e" stroke="#70472e" stroke-width="8"/>
+  <path d="M330 91 Q356 57 382 91" fill="none" stroke="#a87345" stroke-width="13" stroke-linecap="round"/>
+  <circle cx="344" cy="104" r="4" fill="#70472e"/>
+  <circle cx="368" cy="104" r="4" fill="#70472e"/>
+  <path d="M344 120 Q356 130 369 120" fill="none" stroke="#70472e" stroke-width="5" stroke-linecap="round"/>
+
+  <path d="M92 126 L115 149 M115 126 L92 149 M625 176 L648 199 M648 176 L625 199" stroke="#a87345" stroke-width="7" stroke-linecap="round"/>
+</svg>

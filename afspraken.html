@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afspraak Maken | Bandplakservice</title>
+    <style>
+      :root {
+        --paper: #f7efdf;
+        --panel: #fffaf0;
+        --brown: #70472e;
+        --brown-soft: #a87345;
+        --beige: #ead9b9;
+        --line: #cfb899;
+        --muted: #7f6858;
+        --success: #6f8660;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ead8b9, #f7efdf 48%, #d9c19d);
+        color: var(--brown);
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .page {
+        width: min(980px, 92vw);
+        margin: 2rem auto;
+        border-top: 8px solid #b98a5b;
+        padding: 2.5rem clamp(1.25rem, 5vw, 4.75rem) 3rem;
+      }
+
+      .back-link {
+        color: var(--brown-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .back-link:hover {
+        color: var(--brown);
+      }
+
+      header {
+        border-bottom: 1px solid var(--line);
+        margin: 1.25rem 0 2rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .eyebrow {
+        margin: 0 0 0.5rem;
+        color: var(--brown-soft);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.5rem, 6vw, 4.6rem);
+        font-weight: 400;
+        line-height: 1.05;
+      }
+
+      .intro {
+        max-width: 620px;
+        color: var(--muted);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.1rem;
+        line-height: 1.7;
+      }
+
+      .booking-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.9fr) minmax(300px, 1.1fr);
+        gap: 2.5rem;
+      }
+
+      .calendar-panel,
+      .details-panel {
+        border-top: 3px solid var(--brown-soft);
+        padding-top: 1rem;
+      }
+
+      h2 {
+        margin: 0 0 1.25rem;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.65rem;
+        font-weight: 400;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      input[type="date"] {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 0;
+        background: var(--panel);
+        color: var(--brown);
+        font: inherit;
+        padding: 0.85rem;
+      }
+
+      .hint {
+        margin: 0.65rem 0 1.5rem;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .time-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.65rem;
+      }
+
+      .time-button {
+        border: 1px solid var(--line);
+        border-radius: 0;
+        background: transparent;
+        color: var(--brown);
+        cursor: pointer;
+        font: inherit;
+        padding: 0.8rem 0.5rem;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .time-button:hover,
+      .time-button.selected {
+        background: var(--brown-soft);
+        color: #fffaf0;
+      }
+
+      .time-button:focus-visible,
+      input:focus-visible,
+      .confirm-button:focus-visible,
+      .back-link:focus-visible {
+        outline: 3px solid #d6aa68;
+        outline-offset: 3px;
+      }
+
+      .summary {
+        min-height: 110px;
+        border-bottom: 1px solid var(--line);
+        color: var(--muted);
+        line-height: 1.6;
+        padding-bottom: 1.25rem;
+      }
+
+      .summary strong {
+        display: block;
+        color: var(--brown);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.35rem;
+        font-weight: 400;
+      }
+
+      .confirm-button {
+        width: 100%;
+        margin-top: 1.5rem;
+        border: 1px solid var(--brown);
+        border-radius: 0;
+        background: var(--brown);
+        color: #fffaf0;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+        padding: 0.95rem 1rem;
+      }
+
+      .confirm-button:hover {
+        background: var(--brown-soft);
+      }
+
+      .confirmation {
+        margin: 1rem 0 0;
+        color: var(--success);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 700px) {
+        .page {
+          margin: 0 auto;
+          padding-top: 1.75rem;
+        }
+
+        .booking-layout {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="back-link" href="index.html">&larr; Terug naar home</a>
+
+      <header>
+        <p class="eyebrow">Bandplakservice</p>
+        <h1>Maak een afspraak</h1>
+        <p class="intro">Kies hieronder een datum en een rustig moment. We zorgen dat je snel weer op weg kunt.</p>
+      </header>
+
+      <form id="booking-form">
+        <div class="booking-layout">
+          <section class="calendar-panel" aria-labelledby="date-heading">
+            <h2 id="date-heading">Kies een datum</h2>
+            <label for="date">Beschikbare dag</label>
+            <input id="date" name="date" type="date" required />
+            <p class="hint">We zijn geopend van maandag tot en met zaterdag.</p>
+
+            <h2 id="time-heading">Kies een tijd</h2>
+            <div class="time-grid" aria-labelledby="time-heading">
+              <button class="time-button" type="button" data-time="09:00">09:00</button>
+              <button class="time-button" type="button" data-time="10:30">10:30</button>
+              <button class="time-button" type="button" data-time="12:00">12:00</button>
+              <button class="time-button" type="button" data-time="13:30">13:30</button>
+              <button class="time-button" type="button" data-time="15:00">15:00</button>
+              <button class="time-button" type="button" data-time="16:30">16:30</button>
+            </div>
+          </section>
+
+          <section class="details-panel" aria-labelledby="summary-heading">
+            <h2 id="summary-heading">Jouw afspraak</h2>
+            <div class="summary" id="summary" aria-live="polite">Kies eerst een datum en tijd.</div>
+            <button class="confirm-button" type="submit">Afspraak bevestigen</button>
+            <p class="confirmation" id="confirmation" role="status"></p>
+          </section>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      const form = document.querySelector("#booking-form");
+      const dateInput = document.querySelector("#date");
+      const summary = document.querySelector("#summary");
+      const confirmation = document.querySelector("#confirmation");
+      const timeButtons = document.querySelectorAll(".time-button");
+      let selectedTime = "";
+
+      const today = new Date();
+      const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000);
+      dateInput.min = localToday.toISOString().split("T")[0];
+
+      function updateSummary() {
+        if (!dateInput.value || !selectedTime) {
+          summary.textContent = "Kies eerst een datum en tijd.";
+          return;
+        }
+
+        const chosenDate = new Date(`${dateInput.value}T12:00:00`);
+        const formattedDate = new Intl.DateTimeFormat("nl-NL", {
+          weekday: "long",
+          day: "numeric",
+          month: "long"
+        }).format(chosenDate);
+        summary.innerHTML = `<strong>${formattedDate}</strong>om ${selectedTime} uur`;
+      }
+
+      dateInput.addEventListener("change", () => {
+        confirmation.textContent = "";
+        updateSummary();
+      });
+
+      timeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          timeButtons.forEach((item) => item.classList.remove("selected"));
+          button.classList.add("selected");
+          selectedTime = button.dataset.time;
+          confirmation.textContent = "";
+          updateSummary();
+        });
+      });
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!dateInput.value || !selectedTime) {
+          confirmation.textContent = "Kies eerst een datum en een tijdstip.";
+          return;
+        }
+        confirmation.textContent = "Je afspraak is gekozen. We nemen zo snel mogelijk contact met je op ter bevestiging.";
+      });
+    </script>
+  </body>
+</html>
